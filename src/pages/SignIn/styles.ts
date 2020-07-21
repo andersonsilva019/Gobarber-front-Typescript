@@ -19,53 +19,16 @@ export const Content = styled.div`
   width: 100%;
   max-width: 700px;
 
-  > form {
+  form {
     margin: 80px 0;
     width: 340px;
     text-align: center;
 
-    > h1 {
+    h1 {
       margin-bottom: 24px;
     }
 
-    > input {
-      background: #232129;
-      border-radius: 10px;
-      padding: 16px;
-      width: 100%;
-      border: 2px solid #232120;
-      color: #f4ede8;
-
-      &::placeholder {
-        color: #666360;
-      }
-
-      & + input {
-        margin-top: 8px;
-      }
-    }
-
-    > button {
-      width: 100%;
-      height: 56px;
-
-      background: #ff9000;
-      border-radius: 10px;
-      padding: 0 16px;
-      border: 0;
-
-      color: #312e38;
-      font-weight: 500;
-
-      margin-top: 16px;
-      transition: background 0.2s;
-
-      &:hover {
-        background: ${shade(0.2, '#ff9000')};
-      }
-    }
-
-    > a {
+    a {
       color: #f4ede8;
       display: block;
       margin-top: 24px;
@@ -78,7 +41,7 @@ export const Content = styled.div`
     }
   }
 
-  > a {
+  a {
     color: #ff9000;
     display: block;
     margin-top: 24px;
