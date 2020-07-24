@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import logo from '../../assets/logo.svg';
 import { Container, Content, Background } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -42,9 +42,11 @@ const SignIn: React.FC = () => {
           password: data.password,
         });
       } catch (err) {
-        const errors = getValidationErrors(err);
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
 
-        formRef.current?.setErrors(errors);
+          formRef.current?.setErrors(errors);
+        }
       }
     },
     [signIn],
@@ -65,7 +67,9 @@ const SignIn: React.FC = () => {
             placeholder="Senha"
           />
 
-          <Button type="submit">Entrar</Button>
+          <Button title="Faça seu login" type="submit">
+            Entrar
+          </Button>
 
           <a href="forgot">Esqueci minha senha</a>
         </Form>
